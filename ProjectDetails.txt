@@ -1,0 +1,55 @@
+-Web Scraping Project-
+This code appears to be a Twitter scraper using Selenium, primarily designed to extract tweets.
+
+Imports:
+
+->Selenium WebDriver: Automates the browser interaction (Chrome in this case).
+->Other Selenium modules: Used for locating elements, handling exceptions, and managing Chrome options.
+datetime, re, json, time, logging: Standard Python modules for handling dates, regular expressions, JSON data, sleep delays, and logging.
+->mysql.connector: Likely used for storing data in a MySQL database.
+->langdetect: A library for detecting the language of the tweet's content.
+->TWITTER_AUTH_TOKEN: Imported from a config file for authentication on Twitter (now known as X).
+
+Logging:
+
+The script is set up to log activities with an info level using Python’s built-in logging library, which is helpful for debugging and tracking the process flow.
+TwitterExtractor Class:
+
+->Constructor (__init__):
+headless: Specifies whether to run the browser in headless mode (without a GUI).
+max_tweets: Sets a maximum number of tweets to scrape.
+->_start_chrome: Initializes the Chrome browser session with the specified settings.
+set_token: Sets up an authentication token for accessing Twitter. This token is validated, and if it’s not configured correctly, a ValueError is raised.
+
+Methods:
+
+->_start_chrome: Configures Chrome options and starts a browser instance with or without a visible GUI, then navigates to Twitter's homepage.
+->set_token: Inserts the authentication token into the browser session and configures it to last for seven days.
+
+Methods:
+
+->search_tweets:
+
+Loops through a list of hashtags, collecting tweets within a specific date range.
+It splits the date range into 30-minute intervals (timedelta(minutes=30)).
+For each interval, it constructs a URL that searches Twitter for live tweets containing the hashtag and the specified date range.
+It attempts to fetch tweets by calling fetch_tweets(), and in case of a failure (e.g., WebDriverException), it retries after a 10-minute delay.
+After completing each hashtag, it saves the results to a JSON file (_save_to_json()) and a MySQL database (save_to_mysql()), with delays between each hashtag.
+
+->fetch_tweets:
+
+This method is responsible for extracting tweets from the Twitter page after the search results load.
+It ensures the tweets are collected until the maximum count (max_tweets) is reached or no more tweets are found.
+It uses find_elements to extract articles (tweets) from the page by locating them with an XPath query (//article[@role="article"]).
+There is a check to break the loop if no more tweets are found.
+
+Database Saving and JSON:
+The script collects the data and then saves it using two methods:
+_save_to_json(): Saves the collected data into a JSON file, one for each hashtag.
+save_to_mysql(): Inserts the collected tweets into a MySQL database, with placeholders for the host, user, password, and database name.
+Delays:
+The code includes several time.sleep() calls to avoid overloading the server and respect rate limits:
+150 seconds between requests within the same hashtag.
+300 seconds between different hashtags.
+
+The script is designed to systematically scrape tweets based on hashtags within a given timeframe, store the results, and handle rate limits.
