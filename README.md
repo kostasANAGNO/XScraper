@@ -62,3 +62,5 @@ The JSON format makes it easy to read and write the data, enabling quick initial
 
 This is an individual project aimed at gaining familiarity with tools and libraries used for web scraping, specifically the Selenium library. Selenium is one of the most accessible and secure libraries for web scraping in Python, making it a valuable tool for various data extraction tasks. The project was created to enhance practical knowledge of handling web scraping challenges, utilizing automation to extract meaningful data from social media platforms like Twitter.
 
+Personal email: k.anagnostou200328@gmail.com
+
