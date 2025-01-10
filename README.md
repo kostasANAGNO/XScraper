@@ -1,5 +1,5 @@
 
-# TwitterScraper
+# XScraper
 
 This project is designed for scraping tweets from Twitter (now X) based on specific hashtags. The code utilizes Python's **Selenium** library for efficient web scraping. The first script (**HashtagScraperV1**) extracts tweets related to a given hashtag and saves them in a JSON file. The JSON file is named using the hashtag and the current timestamp.
 
