@@ -1,7 +1,7 @@
 
 # XScraper
 
-This project is designed for scraping tweets from Twitter (now X) based on specific hashtags. The code utilizes Python's **Selenium** library for efficient web scraping. The first script (**HashtagScraperV1**) extracts tweets related to a given hashtag and saves them in a JSON file. The JSON file is named using the hashtag and the current timestamp.
+This project is designed for scraping tweets from Twitter (now X) based on specific hashtags. The code utilizes Python's **Selenium** library for efficient web scraping. The first script (**KeywordScraperV1**) extracts tweets related to  given keywords and saves them in a JSON file. The JSON file is named using the keywords and the current timestamp.
 
 ## PREREQUISITES
 
@@ -28,20 +28,20 @@ Before running the code, make sure you have the following:
 
 ## Data Extraction
 
-To extract tweets from a hashtag and save them to a JSON file:
+To extract tweets from some keywords and save them to a JSON file:
 
-1. Open `HashtagScraperV1.py`.
-2. Set the Twitter hashtag(s) you want to scrape in the `hashtags` list inside the `main` function.
+1. Open `keywordsScraperV1.py`.
+2. Set the Twitter keywords you want to scrape in the `keywords` list inside the `main` function.
 3. Specify the **start** and **end dates** for the data range (in **YYYY-MM-DD** format). Ensure that `start_date` is earlier than `end_date`.
 4. Run the script in your IDE by executing:
    ```bash
-   python HashtagScraperV1.py
+   python KeywordsScraperV1.py
    ```
    The script will fetch tweets and save them to a JSON file named after the hashtag and timestamp.
 
 ## Alternative: Storing Data in MySQL
 
-If you prefer to store the data in a local MySQL database instead of a JSON file, you can use **HashtagScraperV2.py**.
+If you prefer to store the data in a local MySQL database instead of a JSON file, you can use **KeywordScraperV2.py**.
 
 1. Install MySQL connector:
    ```bash
@@ -50,7 +50,7 @@ If you prefer to store the data in a local MySQL database instead of a JSON file
 2. In the `search_tweets` function, set your MySQL connection parameters (e.g., `root`, `user`, `password`, `database`, `table`).
 3. Run the script in your IDE by executing:
    ```bash
-   python HashtagScraperV2.py
+   python KeywordScraperV2.py
    ```
    This will scrape tweets and save them both in a JSON file and a local MySQL database.
 
