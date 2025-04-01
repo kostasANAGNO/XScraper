@@ -1,5 +1,5 @@
 
-# XScraper
+# XkeywordScraper
 
 This project is designed for scraping tweets from Twitter (now X) based on specific hashtags. The code utilizes Python's **Selenium** library for efficient web scraping. The first script (**KeywordScraperV1**) extracts tweets related to  given keywords and saves them in a JSON file. The JSON file is named using the keywords and the current timestamp.
 
