@@ -30,7 +30,7 @@ Before running the code, make sure you have the following:
 
 To extract tweets from some keywords and save them to a JSON file:
 
-1. Open `keywordsScraperV1.py`.
+1. Open `keywordScraperV1.py`.
 2. Set the Twitter keywords you want to scrape in the `keywords` list inside the `main` function.
 3. Specify the **start** and **end dates** for the data range (in **YYYY-MM-DD** format). Ensure that `start_date` is earlier than `end_date`.
 4. Run the script in your IDE by executing:
